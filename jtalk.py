@@ -4,11 +4,11 @@
 import subprocess
 from datetime import datetime
 
-def jtalk(t):
+def jtalk(t, s):
     open_jtalk=['open_jtalk']
     mech=['-x', '/var/lib/mecab/dic/open-jtalk/naist-jdic']
     htsvoice=['-m', '/usr/share/hts-voice/mei/mei_normal.htsvoice']
-    speed=['-r', '1.0']
+    speed=['-r', '{}'.format(s)]
     outwav=['-ow', 'open_jtalk.wav']
     cmd=open_jtalk+mech+htsvoice+speed+outwav
     c = subprocess.Popen(cmd, stdin=subprocess.PIPE)
